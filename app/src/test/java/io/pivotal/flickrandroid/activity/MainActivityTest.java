@@ -1,4 +1,4 @@
-package io.pivotal.flickrandroid;
+package io.pivotal.flickrandroid.activity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
+
+import io.pivotal.flickrandroid.BuildConfig;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,6 +26,4 @@ public class MainActivityTest {
     public void activity_hasTitle() {
         assertThat(subject.getTitle()).isEqualTo("FlickrAndroid");
     }
-
-
 }
