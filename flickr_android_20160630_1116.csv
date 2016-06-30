@@ -1,0 +1,49 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By
+123343121,Andrew can see a label with a title,"",1,"Jun 27, 2016","Jul 3, 2016",feature,1,unstarted,"Jun 29, 2016",,,Andrew Leung,"**WHEN** Andrew launches the application
+**THEN** He should see a title labeled ""Flickr for Android""
+
+**ACCEPTANCE**
+- A title set to ""Flickr for Android"" is visible at the top of the screen
+- Title should be centered on the screen
+- Title should be 24sp",https://www.pivotaltracker.com/story/show/123343121,
+123344501,Andrew can see a list of descriptions displayed in a grid,"",1,"Jun 27, 2016","Jul 3, 2016",feature,3,unstarted,"Jun 29, 2016",,,Andrew Leung,"**WHEN** Andrew launches the application
+**THEN** He should see a list of items with text describing a Flickr Image (placeholder text for now)
+
+**ACCEPTANCE**
+- A grid list is used with 3 columns
+- Each list item has placeholder description saying ""Flickr""
+- Text should be centered horizontally
+- Grid list contains 7 placeholder list items to ensure there are 3 columns
+
+**HELPFUL LINKS**
+- [RecyclerView](
+https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
+- [RecyclerView.Adapter](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html)
+- [RecyclerView.ViewHolder](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ViewHolder.html)
+- [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html)",https://www.pivotaltracker.com/story/show/123344501,
+123346811,Andrew can see a placeholder image in each list item,"",1,"Jun 27, 2016","Jul 3, 2016",feature,1,unstarted,"Jun 29, 2016",,,Andrew Leung,"**WHEN** Andrew launches the application
+**THEN** He should see a placeholder image centered in each list item
+
+**ACCEPTANCE**
+- Each list item should have an image centered horizontally
+- The image should be placed above the text
+- Image should be loaded using an image loading library
+
+**HELPFUL LINKS**
+- [Picasso](http://square.github.io/picasso/)
+- [LinearLayout](https://developer.android.com/guide/topics/ui/layout/linear.html)
+",https://www.pivotaltracker.com/story/show/123346811,
+123400291,Andrew can see the image and description populated from Flickr's Public API,"",1,"Jun 27, 2016","Jul 3, 2016",feature,2,unstarted,"Jun 29, 2016",,,Andrew Leung,"**WHEN** Andrew launches the application
+**THEN** He should see the image and title populated in the grid list view
+
+**ACCEPTANCE**
+- Image should be populated using the media link from the Flickr API
+- Text should be populated using the title field from the Flickr API
+
+**NOTE**
+Use the following public API from Flickr:
+- http://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true
+
+
+**HELPFUL LINKS**
+- [Retrofit](http://square.github.io/retrofit/)",https://www.pivotaltracker.com/story/show/123400291,
