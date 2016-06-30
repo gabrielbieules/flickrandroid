@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FlickrApplication.getFlickrComponent().inject(this);
+        FlickrApplication.getFlickrApplication().getFlickrComponent().inject(this);
         ImageView cat = new ImageView(this);
         picasso.load("https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg").into(cat);
         setContentView(cat);
