@@ -50,6 +50,7 @@ public class FlickrItemListAdapterTest {
         List<FlickrFeedResponse.FlickrFeedResponseItem> responseItems = new ArrayList<>();
         FlickrFeedResponse.FlickrFeedResponseItem flickrFeedResponseItem = new FlickrFeedResponse.FlickrFeedResponseItem();
         flickrFeedResponseItem.setMedia(new FlickrFeedResponse.FlickrFeedResponseItem.Media("http://example.com/image.png"));
+        flickrFeedResponseItem.setTitle("Some Title");
         responseItems.add(flickrFeedResponseItem);
         adapter.setItems(responseItems);
 
@@ -57,7 +58,7 @@ public class FlickrItemListAdapterTest {
         adapter.onBindViewHolder(viewHolder, 0);
 
         assertThat(stringCaptor.getValue()).isEqualTo("http://example.com/image.png");
-        assertThat(viewHolder.getDescription()).hasText("Flickr");
+        assertThat(viewHolder.getDescription()).hasText("Some Title");
         verify(requestCreator).into(viewHolder.getImageView());
     }
 }

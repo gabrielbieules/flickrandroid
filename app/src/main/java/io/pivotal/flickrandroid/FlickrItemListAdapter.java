@@ -67,10 +67,11 @@ public class FlickrItemListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         FlickrItemViewHolder flickrItemViewHolder = (FlickrItemViewHolder) holder;
-        flickrItemViewHolder.getDescription().setText("Flickr");
+        FlickrFeedResponse.FlickrFeedResponseItem flickrFeedResponseItem = items.get(position);
+        flickrItemViewHolder.getDescription().setText(flickrFeedResponseItem.getTitle());
         flickrItemViewHolder.getDescription().setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         picasso
-                .load(items.get(position).getMedia().getM())
+                .load(flickrFeedResponseItem.getMedia().getM())
                 .into(flickrItemViewHolder.getImageView());
     }
 

@@ -15,6 +15,7 @@ public class FlickrFeedResponse {
 
     public static class FlickrFeedResponseItem {
         private Media media;
+        private String title;
 
         public void setMedia(Media media) {
             this.media = media;
@@ -22,6 +23,14 @@ public class FlickrFeedResponse {
 
         public Media getMedia() {
             return media;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getTitle() {
+            return title;
         }
 
         public static class Media {
