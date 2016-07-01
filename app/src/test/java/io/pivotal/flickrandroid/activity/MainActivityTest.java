@@ -1,6 +1,7 @@
 package io.pivotal.flickrandroid.activity;
 
-import android.view.View;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import org.junit.Before;
@@ -36,5 +37,13 @@ public class MainActivityTest {
     public void activity_hasTitleInActivity() {
         TextView view = (TextView) subject.findViewById(R.id.title);
         assertThat(view).hasText("Flickr for Android");
+    }
+
+    @Test
+    public void activity_hasListOfImagesWithDescriptions() {
+        RecyclerView recyclerView = subject.getItemListRecyclerView();
+        assertThat(recyclerView.getLayoutManager()).isOfAnyClassIn(GridLayoutManager.class);
+        assertThat(((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()).isEqualTo(3);
+        assertThat(recyclerView.getAdapter().getItemCount()).isEqualTo(7);
     }
 }
