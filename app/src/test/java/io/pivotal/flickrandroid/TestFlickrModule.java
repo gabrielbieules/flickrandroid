@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Call;
@@ -21,6 +23,7 @@ import static org.mockito.Mockito.when;
 public class TestFlickrModule {
 
     @Provides
+    @Singleton
     public Picasso picasso() {
         Picasso picasso = mock(Picasso.class);
         RequestCreator requestCreator = mock(RequestCreator.class);
@@ -29,6 +32,7 @@ public class TestFlickrModule {
     }
 
     @Provides
+    @Singleton
     public FlickrService flickrService() {
         FlickrService flickrService = new MockFlickrService();
         return flickrService;
