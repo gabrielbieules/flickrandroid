@@ -1,6 +1,7 @@
 package io.pivotal.flickrandroid.activity;
 
 import android.view.View;
+import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.robolectric.annotation.Config;
 import io.pivotal.flickrandroid.BuildConfig;
 import io.pivotal.flickrandroid.R;
 
+import static org.assertj.android.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -33,6 +35,13 @@ public class MainActivityTest {
     @Test
     public void activity_hasImageOfCat() {
         View view = subject.findViewById(R.id.cat);
+        subject.findViewById(R.id.title);
         assertThat(view).isEqualTo(subject.cat);
+    }
+
+    @Test
+    public void activity_hasTitleInActivity() {
+        TextView view = (TextView) subject.findViewById(R.id.title);
+        assertThat(view).hasText("Flickr for Android");
     }
 }
