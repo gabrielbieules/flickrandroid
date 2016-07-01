@@ -33,13 +33,6 @@ public class MainActivityTest {
     }
 
     @Test
-    public void activity_hasImageOfCat() {
-        View view = subject.findViewById(R.id.cat);
-        subject.findViewById(R.id.title);
-        assertThat(view).isEqualTo(subject.cat);
-    }
-
-    @Test
     public void activity_hasTitleInActivity() {
         TextView view = (TextView) subject.findViewById(R.id.title);
         assertThat(view).hasText("Flickr for Android");
