@@ -11,10 +11,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
-import javax.inject.Inject;
-
 import io.pivotal.flickrandroid.BuildConfig;
-import io.pivotal.flickrandroid.FlickrService;
 import io.pivotal.flickrandroid.R;
 import io.pivotal.flickrandroid.TestFlickrApplication;
 import io.pivotal.flickrandroid.TestFlickrComponent;
@@ -27,9 +24,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MainActivityTest {
 
     private MainActivity subject;
-
-    @Inject
-    FlickrService flickrService;
 
     @Before
     public void setup() {
