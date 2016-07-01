@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.squareup.picasso.Picasso;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,6 +19,7 @@ class FlickrModule {
     }
 
     @Provides
+    @Singleton
     public Picasso picasso() {
         return Picasso.with(context);
     }

@@ -3,6 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content" android:text="@string/subTitle" android:textSize="24sp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/imagesList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
     <ImageView
         android:id="@+id/cat"
         android:layout_width="match_parent"

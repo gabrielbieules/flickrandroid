@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FlickrAndroid</string>
+    <string name="subTitle">Flickr for Android</string>
 </resources>

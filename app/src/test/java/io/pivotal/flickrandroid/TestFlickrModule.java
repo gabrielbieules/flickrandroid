@@ -3,6 +3,8 @@ package io.pivotal.flickrandroid;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,6 +16,7 @@ import static org.mockito.Mockito.when;
 public class TestFlickrModule {
 
     @Provides
+    @Singleton
     public Picasso picasso() {
         Picasso picasso = mock(Picasso.class);
         RequestCreator requestCreator = mock(RequestCreator.class);
