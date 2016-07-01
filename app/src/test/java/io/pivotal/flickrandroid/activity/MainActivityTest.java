@@ -11,8 +11,13 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
+import javax.inject.Inject;
+
 import io.pivotal.flickrandroid.BuildConfig;
+import io.pivotal.flickrandroid.FlickrService;
 import io.pivotal.flickrandroid.R;
+import io.pivotal.flickrandroid.TestFlickrApplication;
+import io.pivotal.flickrandroid.TestFlickrComponent;
 
 import static org.assertj.android.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,9 +28,13 @@ public class MainActivityTest {
 
     private MainActivity subject;
 
+    @Inject
+    FlickrService flickrService;
+
     @Before
     public void setup() {
         subject = Robolectric.setupActivity(MainActivity.class);
+        ((TestFlickrComponent) TestFlickrApplication.getFlickrApplication().getFlickrComponent()).inject(this);
     }
 
     @Test
@@ -44,6 +53,6 @@ public class MainActivityTest {
         RecyclerView recyclerView = subject.getItemListRecyclerView();
         assertThat(recyclerView.getLayoutManager()).isOfAnyClassIn(GridLayoutManager.class);
         assertThat(((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount()).isEqualTo(3);
-        assertThat(recyclerView.getAdapter().getItemCount()).isEqualTo(7);
+        assertThat(recyclerView.getAdapter().getItemCount()).isEqualTo(5);
     }
 }

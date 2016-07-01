@@ -15,8 +15,13 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import io.pivotal.flickrandroid.FlickrApplication;
+import io.pivotal.flickrandroid.FlickrFeedResponse;
 import io.pivotal.flickrandroid.FlickrItemListAdapter;
+import io.pivotal.flickrandroid.FlickrService;
 import io.pivotal.flickrandroid.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     public RecyclerView.LayoutManager itemListLayoutManager;
 
+    @Inject
+    FlickrService flickrService;
 
     @Inject
     Picasso picasso;
@@ -39,7 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
         itemListLayoutManager = new GridLayoutManager(this, 3);
         itemListRecyclerView.setLayoutManager(itemListLayoutManager);
-        itemListRecyclerView.setAdapter(new FlickrItemListAdapter(picasso));
+        final FlickrItemListAdapter adapter = new FlickrItemListAdapter(picasso, flickrService);
+        itemListRecyclerView.setAdapter(adapter);
+
+        flickrService.feed().enqueue(new Callback<FlickrFeedResponse>() {
+            @Override
+            public void onResponse(Call<FlickrFeedResponse> call, Response<FlickrFeedResponse> response) {
+                adapter.setItems(response.body().getItems());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<FlickrFeedResponse> call, Throwable t) {
+                System.out.println("Something went wrong fetching from flickr: " + t.getLocalizedMessage());
+            }
+        });
     }
 
     public RecyclerView getItemListRecyclerView() {

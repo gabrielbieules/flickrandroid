@@ -9,10 +9,14 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import javax.inject.Inject;
+import java.util.Collections;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FlickrItemListAdapter extends RecyclerView.Adapter {
 
@@ -39,13 +43,23 @@ public class FlickrItemListAdapter extends RecyclerView.Adapter {
     }
 
     private Picasso picasso;
+    private FlickrService flickrService;
 
-    public FlickrItemListAdapter(Picasso picasso) {
+    public void setItems(List<FlickrFeedResponse.FlickrFeedResponseItem> items) {
+        this.items = items;
+    }
+
+    private List<FlickrFeedResponse.FlickrFeedResponseItem> items = Collections.EMPTY_LIST;
+
+    public FlickrItemListAdapter(Picasso picasso, FlickrService flickrService) {
         this.picasso = picasso;
+        this.flickrService = flickrService;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
         LinearLayout view = (LinearLayout) View.inflate(parent.getContext(), R.layout.flickr_item, null);
         return new FlickrItemViewHolder(view);
     }
@@ -56,12 +70,12 @@ public class FlickrItemListAdapter extends RecyclerView.Adapter {
         flickrItemViewHolder.getDescription().setText("Flickr");
         flickrItemViewHolder.getDescription().setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         picasso
-                .load("http://robolectric.org/images/robolectric-stacked-3f7ad42c.png")
+                .load(items.get(position).getMedia().getM())
                 .into(flickrItemViewHolder.getImageView());
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return items.size();
     }
 }
