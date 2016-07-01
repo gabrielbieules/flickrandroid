@@ -14,9 +14,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FlickrItemListAdapter extends RecyclerView.Adapter {
 
@@ -69,7 +66,6 @@ public class FlickrItemListAdapter extends RecyclerView.Adapter {
         FlickrItemViewHolder flickrItemViewHolder = (FlickrItemViewHolder) holder;
         FlickrFeedResponse.FlickrFeedResponseItem flickrFeedResponseItem = items.get(position);
         flickrItemViewHolder.getDescription().setText(flickrFeedResponseItem.getTitle());
-        flickrItemViewHolder.getDescription().setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         picasso
                 .load(flickrFeedResponseItem.getMedia().getM())
                 .into(flickrItemViewHolder.getImageView());

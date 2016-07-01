@@ -20,5 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         tools:text="Sample Text"
+        android:textAlignment="center"
         />
 </LinearLayout>
